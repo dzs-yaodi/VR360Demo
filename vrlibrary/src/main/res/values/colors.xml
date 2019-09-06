@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vr_colorPrimary">#607D8B</color>
+    <color name="vr_colorPrimaryDark">#455A64</color>
+    <color name="vr_colorPrimaryLight">#CFD8DC</color>
+    <color name="vr_colorAccent">#536DFE</color>
+    <color name="vr_colorPrimaryText">#212121</color>
+    <color name="vr_colorSecondaryText">#757575</color>
+    <color name="vr_icons">#FFFFFF</color>
+    <color name="vr_divider">#BDBDBD</color>
+</resources>

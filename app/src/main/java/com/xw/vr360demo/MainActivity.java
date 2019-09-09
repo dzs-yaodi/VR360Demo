@@ -41,37 +41,37 @@ public class MainActivity extends AppCompatActivity {
         stringList.add("本地图片");
         stringList.add("本地assets图片");
 
-        arrayAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,stringList);
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, stringList);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position == 0){
-                    filePath="http://cache.utovr.com/201508270528174780.m3u8";
+                if (position == 0) {
+                    filePath = "http://cache.utovr.com/201508270528174780.m3u8";
                     mimeType = MimeType.ONLINE_VIDEO;
-                }else if (position == 1){
+                } else if (position == 1) {
                     filePath = "/sdcard/test2.mp4";
                     mimeType = MimeType.LOCAL_FILE_VIDEO;
-                }else if (position == 2){
+                } else if (position == 2) {
                     filePath = "demo_video.mp4";
                     mimeType = MimeType.ASSETS_VIDEO;
-                }else if (position == 3){
-                    filePath= "android.resource://" + getPackageName() + "/" + R.raw.demo_video;
+                } else if (position == 3) {
+                    filePath = "android.resource://" + getPackageName() + "/" + R.raw.demo_video;
                     mimeType = MimeType.RAW_VIDEO;
-                }else if (position == 4){
-                    filePath="https://i.loli.net/2019/09/04/wX5KZYNRF2DBhjc.jpg";
+                } else if (position == 4) {
+                    filePath = "https://i.loli.net/2019/09/04/wX5KZYNRF2DBhjc.jpg";
                     mimeType = MimeType.ONLINE_BITMAP;
-                }else if (position == 5){
+                } else if (position == 5) {
                     filePath = "/sdcard/temp.jpg";
                     mimeType = MimeType.LOCAL_FILE_BITMAP;
-                }else if (position == 6){
-                    filePath="texture_360_n.jpg";
+                } else if (position == 6) {
+                    filePath = "texture_360_n.jpg";
                     mimeType = MimeType.ASSETS_PICTURE;
                 }
 
-                if (mimeType == MimeType.ONLINE_BITMAP){
+                if (mimeType == MimeType.ONLINE_BITMAP) {
                     Toast.makeText(MainActivity.this, "正在加载网络图片，请稍后。。。", Toast.LENGTH_SHORT).show();
                     BitmapUtils.loadBitmap(filePath, new BitmapUtils.LoadCallBack() {
                         @Override
@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
                         }
                     });
-                }else if ( mimeType == MimeType.LOCAL_FILE_BITMAP){
+                } else if (mimeType == MimeType.LOCAL_FILE_BITMAP) {
                     mBitmap = BitmapFactory.decodeFile(filePath);
                     start(true);
                 }
 
-                if (mimeType != MimeType.ONLINE_BITMAP && mimeType != MimeType.LOCAL_FILE_BITMAP){
+                if (mimeType != MimeType.ONLINE_BITMAP && mimeType != MimeType.LOCAL_FILE_BITMAP) {
                     if (mimeType == MimeType.ASSETS_PICTURE)
                         start(true);
                     else
@@ -107,13 +107,16 @@ public class MainActivity extends AppCompatActivity {
                 .setMimeType(mimeType)
                 .setRemoveHotspot(true)
 //                .setLive(false)
+//                .setShowVideoTitle(true)
+//                .setShowGyroBtn(true)
+//                .setShowScreenshotBtn(true)
                 .setImageModeEnabled(imageMode);
 
-        if (mimeType == MimeType.ONLINE_BITMAP || mimeType == MimeType.LOCAL_FILE_BITMAP){
+        if (mimeType == MimeType.ONLINE_BITMAP || mimeType == MimeType.LOCAL_FILE_BITMAP) {
             configBundle.startEmbeddedActivityWithSpecifiedBitmap(
-                    this,mBitmap);
+                    this, mBitmap);
             return;
-        }else{
+        } else {
             configBundle.startEmbeddedActivity(this);
         }
 

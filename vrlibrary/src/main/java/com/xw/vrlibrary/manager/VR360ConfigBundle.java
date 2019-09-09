@@ -13,6 +13,7 @@ public class VR360ConfigBundle implements Serializable {
     private String filePath;
     //控制显示图片还是视频 true -> 图片 false-> 视频
     private boolean imageModeEnabled;
+    //水印
     private boolean removeHotspot;
     //视频标题
     private boolean showVideoTitle;
@@ -28,7 +29,7 @@ public class VR360ConfigBundle implements Serializable {
     private VR360ConfigBundle() {
         filePath=null;
         imageModeEnabled=false;
-        removeHotspot = false;
+        removeHotspot = true;
         showVideoTitle = false;
         showScreenshotBtn = false;
         showGyroBtn = false;

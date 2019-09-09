@@ -44,7 +44,7 @@ allprojects {
 }
 dependencies {
 
-       implementation 'com.github.dzs-yaodi:VR360Demo:V1.2'      
+       implementation 'com.github.dzs-yaodi:VR360Demo:V1.3'      
 }
 
 支持原有的一行代码调用方法(视频)
@@ -56,7 +56,7 @@ dependencies {
 VR360ConfigBundle configBundle = VR360ConfigBundle.newInstance()<br>
                 .setFilePath(filePath)//视频/图片地址<br>
                 .setMimeType(mimeType)//视频/图片来源<br>
-                .setRemoveHotspot(true)<br>
+                .setRemoveHotspot(true)<br>//true-> 去掉水印 ，false -> 显示（默认true）
                 .setLive(false)//是否是直播，直播的时候隐藏底部进度条布局<br>
                 .setShowVideoTitle(true)//是否显示标题<br>
                 .setShowGyroBtn(true)//是否显示陀螺仪按钮<br>
